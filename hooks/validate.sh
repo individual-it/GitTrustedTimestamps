@@ -309,7 +309,7 @@ validate_commit_and_parents() {
       fi
     done <<< $(printf "%s" "$PARENTS")
   fi
-  if [ "$ALL_PASSED"=true ]; then
+  if [ "$ALL_PASSED" = true ]; then
     return 0
   fi
   return 1
