@@ -43,7 +43,7 @@ if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
 
 declare -i MINVERSION=$TIMESTAMPING_VERSION
 
-while [[ $# -gt 1 ]]; do
+while [[ $# -gt 0 ]]; do
   KEY="$1"
 
   case $KEY in
@@ -66,12 +66,12 @@ while [[ $# -gt 1 ]]; do
       shift # past argument
       ;;
     *) # unknown option
-      echo_error "Unknown argument: $KEY"
-      exit 1
+      OBJECT=$KEY
+      shift # past argument
       ;;
   esac
 done
-OBJECT="$1"
+
 if [ -z "$OBJECT" ]; then
   OBJECT="HEAD"
 fi
